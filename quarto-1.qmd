@@ -4,6 +4,13 @@ format: html
 ---
 
 ```{r}
+#| echo: false
+#| message: FALSE
 library(tidyverse)
+library(primer.data)
+```
+```{r}
+connectedness |> 
+  ggplot(aes(x = population, y = connectedness)) + scale_x_log10(labels = scales::comma) + geom_point() + geom_smooth(method = "lm", se = FALSE) + labs(title = "US County Populations Versus Economic Connectedness", subtitle = "Population size doesn't matter to EC", y = "Economic Connectedness", x = "Population") 
 ```
 
